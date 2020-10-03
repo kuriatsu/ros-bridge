@@ -410,11 +410,12 @@ class CarlaRosBridge(object):
         else:
             actor = Actor(carla_actor, parent, self.comm)
 
-        rospy.loginfo("Created {}(id={}, parent_id={},"
-                      " type={}, prefix={}, attributes={})".format(
-                          actor.__class__.__name__, actor.get_id(),
-                          actor.get_parent_id(), carla_actor.type_id,
-                          actor.get_prefix(), carla_actor.attributes))
+        ## comment outed by kuriatsu ##
+        # rospy.loginfo("Created {}(id={}, parent_id={},"
+        #               " type={}, prefix={}, attributes={})".format(
+        #                   actor.__class__.__name__, actor.get_id(),
+        #                   actor.get_parent_id(), carla_actor.type_id,
+        #                   actor.get_prefix(), carla_actor.attributes))
         with self.update_lock:
             self.actors[carla_actor.id] = actor
 
